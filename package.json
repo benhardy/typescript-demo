@@ -2,7 +2,6 @@
   "name": "node-hello",
   "version": "0.1.0",
   "dependencies": {
-    "express": "2.4.6",
-    "body-parser": "1.17.2"
+    "express": "2.4.6"
   }
 }

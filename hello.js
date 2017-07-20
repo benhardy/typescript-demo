@@ -1,8 +1,7 @@
 var express = require('express');
  
 var app = express.createServer(express.logger());
-var bodyParser = require("body-parser");
-app.use(bodyParser.json());
+app.use(express.bodyParser());
  
 app.put('/', function(req, res) {
   // unless the right content-type header is supplied, body will be undefined
