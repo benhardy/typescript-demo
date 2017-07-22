@@ -14,8 +14,10 @@ import expressValidator = require("express-validator");
 import * as homeController from "./controllers/home";
 
 const app = express();
+app.use(bodyParser());
 
 app.get("/", homeController.index);
+app.get("/dogs", homeController.dogList);
 app.post("/dog", homeController.newDog);
 
 const port = process.env.PORT || 3000;
