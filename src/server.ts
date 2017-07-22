@@ -19,6 +19,8 @@ app.use(bodyParser());
 app.get("/", homeController.index);
 app.get("/dogs", homeController.dogList);
 app.post("/dog", homeController.newDog);
+app.put("/dog/:name", homeController.pupdate);
+app.get("/dog/:name", homeController.hereDog);
 
 const port = process.env.PORT || 3000;
  
