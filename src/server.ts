@@ -21,6 +21,7 @@ app.get("/dogs", homeController.dogList);
 app.post("/dog", homeController.newDog);
 app.put("/dog/:name", homeController.pupdate);
 app.get("/dog/:name", homeController.hereDog);
+app.delete("/dog/:name", homeController.bye);
 
 const port = process.env.PORT || 3000;
  

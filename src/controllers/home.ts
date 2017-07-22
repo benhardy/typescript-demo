@@ -81,6 +81,22 @@ export let pupdate = ( req: Request, res: Response) => {
   successfulPupdate(res, doggo, 201);
 };
 
+export let bye = ( req: Request, res: Response) => {
+  let name = req.params.name;
+  if (!name || !doggos[name]) {
+    unknownDog(res, 404, "Never sniffed that dog");
+    return;
+  }
+  delete doggos[name];
+  res.status(200);
+  res.contentType('json');
+  let result = {
+    status: "success",
+    message: "until next time good buddy"
+  };
+  res.send(JSON.stringify(result));
+};
+
 export let dogList = ( req: Request, res: Response) => {
   res.contentType('json');
   res.send(JSON.stringify(doggos));
