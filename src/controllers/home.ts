@@ -19,11 +19,25 @@ export let newDog = ( req: Request, res: Response) => {
   let doggo = new Dog();
   doggo.name = parsed.name;
   doggo.breed = parsed.breed;
-  console.log(doggo);
+  if (!doggo.name || doggos[doggo.name]) {
+    res.status(400);
+    res.contentType('json');
+    let result = {
+        status: "failure",
+        message: "Doggos need a unique name"
+    };
+    res.send(JSON.stringify(result));
+  }
   doggos[doggo.name] = doggo;
        
+  res.setHeader('Location', "http://localhost:3000/dog/" + doggo.name);
+  res.status(201);
   res.contentType('json');
-  res.send(JSON.stringify({ status: "success" }));
+  let result = {
+      status: "success",
+      message: "Good dog, 12/10 would pet"
+  };
+  res.send(JSON.stringify(result));
 };
  
 export let dogList = ( req: Request, res: Response) => {
