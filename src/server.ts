@@ -17,11 +17,20 @@ import * as homeController from "./controllers/home";
 
 const app = express();
 app.use(bodyParser());
-let responseBragger = (req:Request, res:Response, next:NextFunction) => {
-  res.setHeader("X-Blurg", "definite")
-  next()
+
+interface BraggerOptions {
+  header: string
+  message: string
+}
+let bragger = function(opts:BraggerOptions) {
+  return (req:Request, res:Response, next:NextFunction) => {
+    if (req.method == "GET") {
+      res.setHeader(opts.header, opts.message);
+    }
+    next()
+  }
 };
-app.use(responseBragger);
+app.use(bragger({header:"X-Credibility", message: "complete bollocks"}));
 app.get("/", homeController.index);
 app.get("/dogs", homeController.dogList);
 app.post("/dog", homeController.newDog);
