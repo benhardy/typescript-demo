@@ -1,18 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700|Raleway');
+
 $funkyYellow: #dd9;
 
 body {
     background-color: #334;
     color: $funkyYellow;
-
-
+    font-family: Raleway;
+    font-size: 1em;
+    font-weight: normal;
+    h1 {
+        font-family: Oswald;
+        font-size:4em;
+        font-weight:bold;
+        text-align: center;
+        margin: 0.3em;
+    }
 }
 
 div#main {
     margin-left: 10em;
     margin-right: 10em;
+    padding-left: 1em;
+    padding-right: 1em;
     background: #ccc;
     border: 2px solid $funkyYellow;
     color:black;
+
+    h2 {
+        font-family: Oswald;
+        font-size:3em;
+        font-weight:normal;
+        text-align:center;
+        margin: 0.2em;
+    }
 }
 
 

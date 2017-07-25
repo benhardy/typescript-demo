@@ -38,7 +38,10 @@ function successfulPupdate(res:Response, doggo:Dog, code:number) {
 }
 
 export let index = (req: Request, res: Response) => {
-  res.render('index', {title: "Home", greeting: "G'day mate"})
+  res.render('index', {
+    title: "Dogs!",
+    big_heading: "THE GREAT DOG PARTY",
+    greeting: "And a woof to you!"})
 };
 
 export let newDog = ( req: Request, res: Response) => {
