@@ -17,13 +17,13 @@ import * as homeController from "./controllers/home";
 import { HeaderOptions, HeaderInjector } from "./middlewares/header_injector";
 
 const app = express();
+
+// view configuration
 const mustacheExpress = require('mustache-express');
-
-// Register '.mustache' extension with The Mustache Express
 app.engine('mustache', mustacheExpress());
-
 app.set('view engine', 'mustache');
-app.set('views', __dirname + '/views');
+let viewDirBase = (app.settings.env =='development') ? 'src' : __dirname;
+app.set('views', viewDirBase + '/views');
 
 app.use(bodyParser());
 app.use(HeaderInjector({header:"X-Credibility", message: "complete bollocks"}));
