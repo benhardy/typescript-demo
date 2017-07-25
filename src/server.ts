@@ -14,23 +14,12 @@ import expressValidator = require("express-validator");
 import { Request, Response, NextFunction } from 'express';
 
 import * as homeController from "./controllers/home";
+import { HeaderOptions, HeaderInjector } from "./middlewares/header_injector";
 
 const app = express();
 app.use(bodyParser());
+app.use(HeaderInjector({header:"X-Credibility", message: "complete bollocks"}));
 
-interface BraggerOptions {
-  header: string
-  message: string
-}
-let bragger = function(opts:BraggerOptions) {
-  return (req:Request, res:Response, next:NextFunction) => {
-    if (req.method == "GET") {
-      res.setHeader(opts.header, opts.message);
-    }
-    next()
-  }
-};
-app.use(bragger({header:"X-Credibility", message: "complete bollocks"}));
 app.get("/", homeController.index);
 app.get("/dogs", homeController.dogList);
 app.post("/dog", homeController.newDog);
