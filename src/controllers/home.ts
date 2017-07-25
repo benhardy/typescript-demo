@@ -26,7 +26,7 @@ function unknownDog( res: Response, code:number, err:String = "Doggos need a uni
     res.send(JSON.stringify(result));
 }
 
-function successfulPupdate(res:Response, doggo:Dog, code:Number) {
+function successfulPupdate(res:Response, doggo:Dog, code:number) {
   res.setHeader('Location', "http://localhost:3000/dog/" + doggo.name);
   res.status(code);
   res.contentType('json');
@@ -38,8 +38,7 @@ function successfulPupdate(res:Response, doggo:Dog, code:Number) {
 }
 
 export let index = (req: Request, res: Response) => {
-  res.contentType('text/plain');
-  res.send("Hello");
+  res.render('index', {title: "Home", greeting: "G'day mate"})
 };
 
 export let newDog = ( req: Request, res: Response) => {

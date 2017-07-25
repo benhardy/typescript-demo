@@ -38,6 +38,7 @@
     "testEnvironment": "node"
   },
   "dependencies": {
+    "@types/mustache": "^0.8.29",
     "async": "^2.1.2",
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.15.2",
@@ -54,6 +55,8 @@
     "lusca": "^1.4.1",
     "mongoose": "^4.6.6",
     "morgan": "^1.7.0",
+    "mustache": "^2.3.0",
+    "mustache-express": "^1.2.5",
     "nodemailer": "^2.6.4",
     "passport": "0.3.2",
     "passport-facebook": "^2.1.1",

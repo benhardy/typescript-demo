@@ -17,9 +17,19 @@ import * as homeController from "./controllers/home";
 import { HeaderOptions, HeaderInjector } from "./middlewares/header_injector";
 
 const app = express();
+const mustacheExpress = require('mustache-express');
+
+// Register '.mustache' extension with The Mustache Express
+app.engine('mustache', mustacheExpress());
+
+app.set('view engine', 'mustache');
+//app.set('views', __dirname + '/views');
+app.set('views', './src/views');
+
 app.use(bodyParser());
 app.use(HeaderInjector({header:"X-Credibility", message: "complete bollocks"}));
 
+// routing
 app.get("/", homeController.index);
 app.get("/dogs", homeController.dogList);
 app.post("/dog", homeController.newDog);
