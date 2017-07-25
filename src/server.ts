@@ -23,11 +23,11 @@ const mustacheExpress = require('mustache-express');
 app.engine('mustache', mustacheExpress());
 
 app.set('view engine', 'mustache');
-//app.set('views', __dirname + '/views');
-app.set('views', './src/views');
+app.set('views', __dirname + '/views');
 
 app.use(bodyParser());
 app.use(HeaderInjector({header:"X-Credibility", message: "complete bollocks"}));
+app.use(express.static(__dirname +'/public'));
 
 // routing
 app.get("/", homeController.index);

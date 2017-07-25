@@ -1,0 +1,18 @@
+$funkyYellow: #dd9;
+
+body {
+    background-color: #334;
+    color: $funkyYellow;
+
+
+}
+
+div#main {
+    margin-left: 10em;
+    margin-right: 10em;
+    background: #ccc;
+    border: 2px solid $funkyYellow;
+    color:black;
+}
+
+
