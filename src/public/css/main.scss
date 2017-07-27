@@ -1,25 +1,44 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:400,700|Raleway');
 
 $funkyYellow: #dd9;
-
+$mushroomBlue: #334;
+$initialHeaderHeight: 16vw;
 body {
-    background-color: #334;
+    background-color: $mushroomBlue;
     color: $funkyYellow;
     font-family: Raleway;
     font-size: 1em;
     font-weight: normal;
-    h1 {
-        font-family: Oswald;
-        font-size:4em;
-        font-weight:bold;
+    margin:0px;
+    padding:0px;
+    border:0px;
+    header {
+        background: $mushroomBlue;
+        position: fixed;
+        z-index: 10;
+        top: 0px;
+        width:100%;
+        margin:0px;
+        padding:10px;
+        border:0px;
+        height: $initialHeaderHeight;
         text-align: center;
-        margin: 0.3em;
+        h1 {
+            font-family: Oswald;
+            font-size: 10vw;
+            font-weight: bold;
+            text-align: center;
+            margin:0px;
+            padding:0px;
+            border:0px;
+        }
     }
 }
 
 div#main {
     margin-left: 10em;
     margin-right: 10em;
+    margin-top: $initialHeaderHeight;
     padding-left: 1em;
     padding-right: 1em;
     background: #ccc;
